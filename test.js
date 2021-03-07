@@ -1,6 +1,7 @@
 const { promises: fs } = require('fs')
 const path =  require('path')
 const os = require('os')
+const resolve = require('resolve')
 
 const { getPluginConfiguration } = require('@yarnpkg/cli')
 const { Configuration, Project, Cache, ThrowReport } = require('@yarnpkg/core')
@@ -42,13 +43,13 @@ async function setup() {
         await fs.symlink(yarnBinary, path.join(workingDir, 'run-yarn.cjs'))
         await fs.writeFile(
             path.join(workingDir, '.yarnrc.yml'),
-            `yarnPath: ./run-yarn.cjs\nenableGlobalCache: false`,
+            `yarnPath: ./run-yarn.cjs\nenableGlobalCache: true`,
             'utf-8',
         )
     } else {
         await fs.writeFile(
             path.join(workingDir, '.yarnrc.yml'),
-            `yarnPath: ${yarnBinary}\nenableGlobalCache: false`,
+            `yarnPath: ${yarnBinary}\nenableGlobalCache: true`,
             'utf-8',
         )
     }
@@ -72,5 +73,10 @@ async function setup() {
     console.log(`Temp project: ${tempProject.cwd}`)
 
     // this was failing in a different project.. somehow it's working now
-    console.log(require.resolve('lodash', {paths:[tempProject.cwd]}))
+    const resolved = resolve.sync('lodash', {
+        basedir: tempProject.cwd,
+        paths: [tempProject.cwd],
+        preserveSymlinks: false, // THIS BREAKS IT
+    })
+    console.log(resolved)
 })()

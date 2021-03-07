@@ -38,7 +38,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@yarnpkg/cli", "virtual:c98c232d10bba2d8e9e20883e78cb81b8f2a39c9fb759aca8f4123f336aac26c877fc0d02a2beb17c0373891fdba94d75979f949e5eaa6e2d446bba1b6b1fd84#npm:2.4.1"],
-            ["@yarnpkg/core", "npm:2.4.0"]
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"]
           ],
           "linkType": "SOFT",
         }]
@@ -1511,6 +1512,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["is-core-module", [
+        ["npm:2.2.0", {
+          "packageLocation": "../../../.yarn/berry/cache/is-core-module-npm-2.2.0-497065e3b0-7.zip/node_modules/is-core-module/",
+          "packageDependencies": [
+            ["is-core-module", "npm:2.2.0"],
+            ["has", "npm:1.0.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["is-extglob", [
         ["npm:2.1.1", {
           "packageLocation": "../../../.yarn/berry/cache/is-extglob-npm-2.1.1-0870ea68b5-7.zip/node_modules/is-extglob/",
@@ -1834,6 +1845,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["path-parse", [
+        ["npm:1.0.6", {
+          "packageLocation": "../../../.yarn/berry/cache/path-parse-npm-1.0.6-4a4c90546c-7.zip/node_modules/path-parse/",
+          "packageDependencies": [
+            ["path-parse", "npm:1.0.6"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["path-type", [
         ["npm:4.0.0", {
           "packageLocation": "../../../.yarn/berry/cache/path-type-npm-4.0.0-10d47fc86a-7.zip/node_modules/path-type/",
@@ -1996,6 +2016,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "../../../.yarn/berry/cache/repeat-string-npm-1.6.1-bc8e388655-7.zip/node_modules/repeat-string/",
           "packageDependencies": [
             ["repeat-string", "npm:1.6.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["resolve", [
+        ["patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa", {
+          "packageLocation": "../../../.yarn/berry/cache/resolve-patch-55fcdb097c-7.zip/node_modules/resolve/",
+          "packageDependencies": [
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"],
+            ["is-core-module", "npm:2.2.0"],
+            ["path-parse", "npm:1.0.6"]
           ],
           "linkType": "HARD",
         }]
@@ -2301,7 +2332,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["yarn-berry-path-issue-repro", "workspace:."],
             ["@yarnpkg/cli", "virtual:c98c232d10bba2d8e9e20883e78cb81b8f2a39c9fb759aca8f4123f336aac26c877fc0d02a2beb17c0373891fdba94d75979f949e5eaa6e2d446bba1b6b1fd84#npm:2.4.1"],
-            ["@yarnpkg/core", "npm:2.4.0"]
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"]
           ],
           "linkType": "SOFT",
         }]
