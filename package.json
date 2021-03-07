@@ -1,0 +1,15 @@
+{
+  "name": "yarn-berry-path-issue-repro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/noahnu/yarn-berry-path-issue-repro.git",
+  "author": "<noah.negin-ulster@tophatmonocle.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@yarnpkg/cli": "^2.4.1",
+    "@yarnpkg/core": "^2.4.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}
